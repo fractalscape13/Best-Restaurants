@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using Restaurant.Models;
+
 namespace Restaurant.Controllers
 {
   public class HomeController : Controller
@@ -11,7 +12,5 @@ namespace Restaurant.Controllers
     {
       return View();
     }
-
   }
-
 }

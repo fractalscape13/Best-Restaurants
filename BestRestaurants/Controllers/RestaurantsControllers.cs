@@ -1,4 +1,0 @@
-namespace Restaurant.Controllers
-{
-
-}
