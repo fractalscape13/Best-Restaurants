@@ -1,0 +1,40 @@
+@{
+  Layout = "_Layout";
+}
+
+@model BestRestaurants.Models.Restaurant
+
+<h2>Edit</h2>
+
+<h4>Edit this restaurant: @Html.DisplayFor(model => model.Name)</h4>
+<div class="col-md-8 offset-md-2">
+  
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.RestaurantId)
+  <div class="form-group">
+    @Html.LabelFor(model => model.Name)
+    @Html.EditorFor(model => model.Name, new { @class="form-control"})
+  </div>
+  <div class="form-group">
+    @Html.LabelFor(model => model.Address)
+    @Html.EditorFor(model => model.Address, new { @class="form-control"})
+  </div>
+  <div class="form-group">
+    @Html.LabelFor(model => model.Hours)
+    @Html.EditorFor(model => model.Hours, new { @class="form-control"})
+  </div>
+  <div class="form-group">
+    @Html.LabelFor(model => model.Rating)
+    @Html.EditorFor(model => model.Rating, new { @class="form-control"})
+  </div>
+
+  <div class="form-group">
+    @Html.LabelFor(model => model.Cuisine)
+    @Html.DropDownList("CuisineId", (IEnumerable<SelectListItem>)ViewBag.PriorityID, new {@class="form-control"})
+  </div>
+    <input type="submit" value="Save changes" class="btn"/>
+}
+
+<p>@Html.ActionLink("Back to restaurant list", "Index")</p>
+</div>

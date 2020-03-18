@@ -2,6 +2,35 @@
   Layout = "_Layout";
 }
 
+@using BestRestaurants.Models;
+@model List<BestRestaurants.Models.Restaurant>;
+
 <h1>Restaurant Index</h1>
+
+@if (@Model.Count == 0)
+{
+  <h3>No restaurants have been added yet...</h3>
+} 
+<div class="card-columns">
+@foreach (Restaurant restaurant in Model)
+{
+  <div class="card">
+    <img src="https://source.unsplash.com/200x150/?@restaurant.Cuisine.Name" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">
+        @Html.ActionLink($"{restaurant.Name}", "Details", new { id = restaurant.RestaurantId })
+      </h5>
+       <p class="card-text text-secondary">
+         Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus inventore corporis vero libero exercitationem veritatis minus sed pariatur itaque quae, laudantium, beatae eveniet repudiandae id cum animi atque debitis soluta!
+       </p>
+
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">@restaurant.Cuisine.Name</small>
+    </div>
+  </div>
+}
+</div>
+<p class="btn">@Html.ActionLink("Add new restaurant", "Create")</p>
 
 <p>@Html.ActionLink("Back to home", "Index", "Home")</p>
