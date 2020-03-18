@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
-using Restaurant.Models;
+using BestRestaurants.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace Restaurant.Controllers
+namespace BestRestaurants.Controllers
 {
   public class RestaurantsController : Controller
   {
@@ -42,7 +42,7 @@ namespace Restaurant.Controllers
     }
     public ActionResult Edit(int id)
     {
-      var thisRestaurant = _db.Restaurants.FirstOrDefault(restaurants => restaurants.Restaurant.Id == id);
+      var thisRestaurant = _db.Restaurants.FirstOrDefault(restaurants => restaurants.RestaurantId == id);
       ViewBag.CuisineId = new SelectList(_db.Cuisines, "CuisineId", "Name");
       return View(thisRestaurant);
     }
@@ -69,13 +69,6 @@ namespace Restaurant.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
-
-
-
-
-
-
   }
 }
 

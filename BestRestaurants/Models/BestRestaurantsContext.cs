@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace Restaurant.Models
+namespace BestRestaurants.Models
 {
   public class BestRestaurantsContext : DbContext
   {

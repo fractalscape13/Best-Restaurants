@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using Restaurant.Models;
+using BestRestaurants.Models;
 
-namespace Restaurant.Controllers
+namespace BestRestaurants.Controllers
 {
   public class HomeController : Controller
   {
