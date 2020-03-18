@@ -9,5 +9,38 @@ body {
   text-align: center;
   font-family: courier;
   color: rgb(255, 255, 240);
-  margin-top: 25px;
+  margin-top: 0px;
+}
+
+.btn {
+  background-image: radial-gradient(gray, blue);
+  width: 35%;
+  border: 5px solid black;
+  margin: 15px;
+  border-radius: 15px;
+}
+
+.btn:hover {
+  cursor: pointer;
+  opacity: .6;
+}
+
+input {
+  background-color: black;
+  color: ivory;
+  border-radius: 15px;
+  margin: 10px;
+  text-align: center;
+}
+
+select {
+  margin: 10px;
+}
+
+li {
+  margin: 15px;
+}
+
+nav {
+  margin-bottom: 25px;
 }
