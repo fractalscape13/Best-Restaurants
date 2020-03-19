@@ -1,0 +1,27 @@
+class reviews 
+
+reviews = table
+
+ReviewId = INT PK NN AI
+RestaurantId = INT default 0
+UserName = VARCHAR(255)
+ReviewBody = Text
+Rating = INT(5) 12345
+
+
+CREATE TABLE `best_restaurant`.`reviews` (
+  `ReviewId` INT NOT NULL AUTO_INCREMENT,
+  `RestaurantId` INT NULL DEFAULT 0,
+  `UserName` VARCHAR(255) NULL,
+  `ReviewBody` TEXT(500) NULL,
+  `Rating` INT NULL,
+  PRIMARY KEY (`ReviewId`));
+
++--------------+--------------+------+-----+---------+----------------+
+| Field        | Type         | Null | Key | Default | Extra          |
++--------------+--------------+------+-----+---------+----------------+
+| ReviewId     | int(11)      | NO   | PRI | NULL    | auto_increment |
+| RestaurantId | int(11)      | YES  |     | 0       |                |
+| UserName     | varchar(255) | YES  |     | NULL    |                |
+| ReviewBody   | text         | YES  |     | NULL    |                |
+| Rating       | int(11)      | YES  |     | NULL    |                |

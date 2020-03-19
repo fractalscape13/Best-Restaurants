@@ -59,8 +59,8 @@ _No known bugs at this time._
 * _VS Code_
 * MVC framework
 * CRUD functionality
-* MySQL
-* MySQL Workbench
+* MySQL 8.0.15
+* MySQL Workbench 8.0.15
 * Entity Core framework
 * LINQ
 
