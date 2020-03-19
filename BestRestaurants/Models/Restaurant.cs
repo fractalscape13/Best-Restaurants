@@ -15,6 +15,7 @@ namespace BestRestaurants.Models
     public string Hours { get; set; }
     public int Rating { get; set; }
     public int CuisineId { get; set; }
+    public string KeyWords { get; set; }
     public virtual Cuisine Cuisine { get; set; }
     public virtual ICollection<Review> Reviews { get; set; }
   }

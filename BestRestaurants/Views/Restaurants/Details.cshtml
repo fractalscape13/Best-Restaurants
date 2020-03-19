@@ -8,7 +8,6 @@
 
 <h3>Address: @Html.DisplayFor(model => model.Address)</h3>
 <h3>Hours: @Html.DisplayFor(model => model.Hours)</h3>
-<h3>Rating: @Html.DisplayFor(model => model.Rating)</h3>
 <h3>Cuisine Style: @ViewBag.Cuisine</h3>
 <hr>
 <h4>Reviews</h4>
@@ -31,7 +30,6 @@ else
   }
   </div>
 }
-
 
 <p>@Html.ActionLink("Add A Review", "Create", "Reviews", new { id = Model.RestaurantId }, new { @class="btn btn-danger"})<p>
 <p>@Html.ActionLink("Return to list", "Index")<p>

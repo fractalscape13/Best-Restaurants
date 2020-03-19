@@ -50,10 +50,13 @@ namespace BestRestaurants.Controllers
         averageRating += review.Rating;
 
       }
-
       //setup ViewBag
       ViewBag.Cuisine = thisCuisine.Name;
       ViewBag.Reviews = thisRestaurant.Reviews;
+      if (count == 0)
+      {
+        count = 1;
+      }
       ViewBag.Average = averageRating / count;
 
       return View(thisRestaurant);
@@ -87,6 +90,13 @@ namespace BestRestaurants.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    public ActionResult Search(string search)
+    {
+      List<Restaurant> model = _db.Restaurants.Where(restaurant => (restaurant.KeyWords.Contains(search))).ToList();
+      return View(model);
+    }
+
   }
 }
 
