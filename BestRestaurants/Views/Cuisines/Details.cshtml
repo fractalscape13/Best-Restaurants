@@ -7,16 +7,16 @@
 
 <h2>Cuisine Details</h2>
 <hr />
-<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+<h4>Type: @Html.DisplayFor(model => model.Name)</h4>
 
 @if (@Model.Restaurants.Count == 0)
 {
-  <p>no Restaurants found</p>
+  <p>No Restaurants Found</p>
 }
 
 @foreach (Restaurant restaurant in @Model.Restaurants)
 {
-  <h4> <a href="/Restaurants/Details/@restaurant.RestaurantId">@restaurant.Name</a></h4>
+  <h3> <a href="/Restaurants/Details/@restaurant.RestaurantId">@restaurant.Name</a></h3>
 }
 
 <p>@Html.ActionLink("Back to Cuisines", "Index")</p>

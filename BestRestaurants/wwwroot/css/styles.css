@@ -44,3 +44,21 @@ li {
 nav {
   margin-bottom: 25px;
 }
+
+.review-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.review-section--card {
+  border: 2px dashed grey;
+  padding-top: 10px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  background-color: rgba(128, 128, 128, 0.358);
+  margin: 3px;
+  width: 33%;
+  height: auto;
+  border-radius: 5px;
+}
