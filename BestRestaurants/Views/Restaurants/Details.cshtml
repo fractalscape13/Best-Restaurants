@@ -8,9 +8,30 @@
 
 <h3>Address: @Html.DisplayFor(model => model.Address)</h3>
 <h3>Hours: @Html.DisplayFor(model => model.Hours)</h3>
-<h3>Rating: @Html.DisplayFor(model => model.Rating)</h3>
 <h3>Cuisine Style: @ViewBag.Cuisine</h3>
+<hr>
+<h4>Reviews</h4>
+@if (ViewBag.Reviews.Count == 0)
+{
+  <p> No Reviews Yet </p>
+}
+else 
+{
+  <p> All Reviews </p>
+  <p> Average Rating: @ViewBag.Average </p>
+  <div class="review-section">
+  @foreach (var review in ViewBag.Reviews)
+  {
+      <div class="review-section--card"> 
+        <p>Reviewed by: @review.UserName</p><br>
+        <p>Rating: @review.Rating</p>
+        @Html.ActionLink($"Read Review", "Details", "Reviews", new { id = review.ReviewId }) 
+      </div>
+  }
+  </div>
+}
 
+<p>@Html.ActionLink("Add A Review", "Create", "Reviews", new { id = Model.RestaurantId }, new { @class="btn btn-danger"})<p>
 <p>@Html.ActionLink("Return to list", "Index")<p>
 <p>@Html.ActionLink("Edit Restaurant Details", "Edit", new { id = Model.RestaurantId })</p>
 <p>@Html.ActionLink("Delete This Restaurant", "Delete", new { id = Model.RestaurantId })</p>
