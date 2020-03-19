@@ -1,0 +1,28 @@
+@{
+  Layout = "_Layout";
+}
+
+@model BestRestaurants.Models.Review;
+
+<h2>Add a new review for @ViewBag.Restaurant.Name</h2>
+<div class="col-md-8 offset-md-2">
+
+  @using (Html.BeginForm())
+  {
+    <input type="hidden" name="RestaurantId" value="@ViewBag.Restaurant.RestaurantId">
+
+    <div class="form-group">
+      @Html.LabelFor(model => model.UserName)
+      @Html.TextBoxFor(model => model.UserName, new { @class="form-control", @required  = "required"})
+    </div>
+    <div class="form-group">
+      @Html.LabelFor(model => model.ReviewBody)
+      @Html.TextBoxFor(model => model.ReviewBody, new { @class="form-control"})
+    </div>
+    <div class="form-group">
+      @Html.LabelFor(model => model.Rating)
+      @Html.TextBoxFor(model => model.Rating, new { @class="form-control", @type = "number"})
+    </div>
+    <input type="submit" value="Add review" class="btn">
+  }
+</div>

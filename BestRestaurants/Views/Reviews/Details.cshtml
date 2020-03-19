@@ -1,0 +1,12 @@
+@{
+  Layout = "_Layout";
+}
+
+@model BestRestaurants.Models.Review
+
+<h2>@Html.DisplayFor(model => model.UserName)'s Review for @ViewBag.Restaurant.Name</h2>
+
+<p>Rating: @Html.DisplayFor(model => model.Rating)</p>
+<p>@Html.DisplayFor(model => model.ReviewBody)</p>
+
+<p>@Html.ActionLink("Back to Restaurant", "Details", "Restaurants", new { id = Model.RestaurantId })</p>
