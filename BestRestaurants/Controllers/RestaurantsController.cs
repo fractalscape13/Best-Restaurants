@@ -91,9 +91,10 @@ namespace BestRestaurants.Controllers
       return RedirectToAction("Index");
     }
 
+    [HttpPost]
     public ActionResult Search(string search)
     {
-      List<Restaurant> model = _db.Restaurants.Where(restaurant => (restaurant.KeyWords.Contains(search))).ToList();
+      List<Restaurant> model = _db.Restaurants.Where(restaurant => (restaurant.KeyWords.Contains(search)) || restaurant.Name.Contains(search)).ToList();
       return View(model);
     }
 
