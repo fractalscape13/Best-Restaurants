@@ -37,9 +37,24 @@ namespace BestRestaurants.Controllers
 
     public ActionResult Details(int id)
     {
+
       Restaurant thisRestaurant = _db.Restaurants.FirstOrDefault(restaurants => restaurants.RestaurantId == id);
       Cuisine thisCuisine = _db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == thisRestaurant.CuisineId);
+      thisRestaurant.Reviews = _db.Reviews.Where(reviews => reviews.RestaurantId == id).ToList();
+      int averageRating = 0;
+      int count = thisRestaurant.Reviews.Count();
+
+      //Get average rating
+      foreach (var review in thisRestaurant.Reviews)
+      {
+        averageRating += review.Rating;
+
+      }
+
+      //setup ViewBag
       ViewBag.Cuisine = thisCuisine.Name;
+      ViewBag.Reviews = thisRestaurant.Reviews;
+      ViewBag.Average = averageRating / count;
 
       return View(thisRestaurant);
     }

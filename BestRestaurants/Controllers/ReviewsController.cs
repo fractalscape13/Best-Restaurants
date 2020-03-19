@@ -32,12 +32,14 @@ namespace BestRestaurants.Controllers
     {
       _db.Reviews.Add(review);
       _db.SaveChanges();
-      return RedirectToAction("Index", "Restaurants");
+      return RedirectToAction("Details", "Restaurants", new { id = review.RestaurantId });
     }
 
     public ActionResult Details(int id)
     {
       Review thisReview = _db.Reviews.FirstOrDefault(review => review.ReviewId == id);
+      var thisRestaurant = _db.Restaurants.FirstOrDefault(restaurant => restaurant.RestaurantId == thisReview.RestaurantId);
+      ViewBag.Restaurant = thisRestaurant;
       return View(thisReview);
     }
     public ActionResult Edit(int id)
@@ -50,7 +52,7 @@ namespace BestRestaurants.Controllers
     {
       _db.Entry(review).State = EntityState.Modified;
       _db.SaveChanges();
-      return RedirectToAction("Index", "Restaurant");
+      return RedirectToAction("Index", "Restaurants");
     }
     public ActionResult Delete(int id)
     {
